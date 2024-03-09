@@ -83,6 +83,4 @@ http://localhost:5173
 
 ## Acknowledgments
 
-This appplication was the main project and developed as part of the [Udemy course](https://www.udemy.com/course/the-ultimate-react-course) "The Ultimate React Course 2024: React, Redux & More" by [Jonas Schmedtman](https://twitter.com/jonasschmedtman).
-
 This application served as the one of the projects developed during "The Ultimate React Course 2024: React, Redux & More" on [Udemy](https://www.udemy.com/course/the-ultimate-react-course), instructed by [Jonas Schmedtman](https://twitter.com/jonasschmedtman).
