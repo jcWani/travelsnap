@@ -1,6 +1,12 @@
-import { createContext, useCallback, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
 
-const BASE_URL = "https://cities-k72f.onrender.com";
+const BASE_URL = "https://cities-ghq0.onrender.com";
 const CitiesContext = createContext();
 
 const initialState = {
@@ -39,7 +45,10 @@ function reducer(state, action) {
 }
 
 function CitiesProvider({ children }) {
-  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(reducer, initialState);
+  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   useEffect(function () {
     dispatch({ type: "loading" });
@@ -51,7 +60,10 @@ function CitiesProvider({ children }) {
 
         dispatch({ type: "cities/loaded", payload: data });
       } catch {
-        dispatch({ type: "rejected", payload: "There was an error loading cities" });
+        dispatch({
+          type: "rejected",
+          payload: "There was an error loading cities",
+        });
       }
     }
 
@@ -70,7 +82,10 @@ function CitiesProvider({ children }) {
 
         dispatch({ type: "city/loaded", payload: data });
       } catch {
-        dispatch({ type: "rejected", payload: "There was an error loading city" });
+        dispatch({
+          type: "rejected",
+          payload: "There was an error loading city",
+        });
       }
     },
     [currentCity.id]
@@ -91,7 +106,10 @@ function CitiesProvider({ children }) {
 
       dispatch({ type: "city/created", payload: data });
     } catch {
-      dispatch({ type: "rejected", payload: "There was an error creating city" });
+      dispatch({
+        type: "rejected",
+        payload: "There was an error creating city",
+      });
     }
   }
 
@@ -105,7 +123,10 @@ function CitiesProvider({ children }) {
 
       dispatch({ type: "city/deleted", payload: id });
     } catch {
-      dispatch({ type: "rejected", payload: "There was an error deleting city" });
+      dispatch({
+        type: "rejected",
+        payload: "There was an error deleting city",
+      });
     }
   }
 
@@ -128,7 +149,8 @@ function CitiesProvider({ children }) {
 
 function useCities() {
   const context = useContext(CitiesContext);
-  if (context === undefined) throw new Error("Context was used outside of the Cities Provider");
+  if (context === undefined)
+    throw new Error("Context was used outside of the Cities Provider");
 
   return context;
 }
